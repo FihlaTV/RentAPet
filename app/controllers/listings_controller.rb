@@ -4,4 +4,12 @@ def index
 
 end
 
+def new
+  @listing = Listing.new
+end
+
+def create
+
+end
+
 end

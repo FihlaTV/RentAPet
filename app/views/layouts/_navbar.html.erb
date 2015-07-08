@@ -26,6 +26,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+        <% if current_user.admin %>
+        <li><a>
+        Admin
+        </a> </li>
+        <% end %>
         <li><%= link_to "Add listing", new_listing_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

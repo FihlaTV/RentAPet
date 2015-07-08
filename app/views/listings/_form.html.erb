@@ -1,0 +1,6 @@
+<%= bootstrap_form_for @listing do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description, row: "4" %>
+  <%= f.number_field :price %>
+  <%= f.submit "Create", data: {disable_with: 'Saving...'}, class: "btn btn-block btn-default"%>
+  <% end %>
