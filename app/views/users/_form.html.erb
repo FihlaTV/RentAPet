@@ -59,5 +59,7 @@
     ])) %>
   <%= f.text_field :zip, placeholder: "95949" %>
   <%= f.phone_field :phone, placeholder: "111-222-4221" %>
+  <%= f.file_field :avatar %>
   <%= f.submit data: {disable_with: 'Saving...'}, class: "btn btn-block btn-default"%>
+
 <% end %>

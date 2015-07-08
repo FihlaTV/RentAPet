@@ -1,5 +1,8 @@
 <%= @user.email %>
 <%= @user.first_name %>
 <%= @user.last_name %>
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
 
 <%= link_to "Edit Profile", edit_user_path(@user) %>
