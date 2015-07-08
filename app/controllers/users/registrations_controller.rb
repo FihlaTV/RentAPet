@@ -40,13 +40,13 @@ before_filter :configure_account_update_params, only: [:update]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :street_address, :city, :state, :zip, :phone, :avatar]
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :street_address, :city, :state, :zip, :phone, :avatar, :description]
   end
 
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :street_address, :city, :state, :zip, :phone, :avatar]
+    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :street_address, :city, :state, :zip, :phone, :avatar, :description]
   end
 
   # The path used after sign up.

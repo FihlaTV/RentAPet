@@ -1,8 +1,28 @@
-<%= @user.email %>
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= image_tag @user.avatar.url %>
-<%= image_tag @user.avatar.url(:medium) %>
-<%= image_tag @user.avatar.url(:thumb) %>
+<h1 class="page-header text-center">
+  Profile for <strong><%= @user.first_name %> <%= @user.last_name %></strong>
+</h1>
 
-<%= link_to "Edit Profile", edit_user_registration_path %>
+<div class="row">
+  <span style="float: left; margin-right: 20px; margin-bottom: 20px"><%= image_tag @user.avatar.url(:medium) %></span>
+
+  <p>
+    Email: <%= @user.email %><br>
+    Phone: <%= number_to_phone @user.phone %>
+  </p>
+  <p>
+    <u>Address:</u><br>
+    <%= @user.street_address %><br>
+    <%= @user.city %>, <%= @user.state %> <%= @user.zip %>
+  </p>
+</div>
+<div class="row">
+  <p>
+    <%= @user.description %>
+  </p>
+</div>
+
+
+
+<%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-block btn-default" %>
+<hr>
+<h1>Listings</h1>

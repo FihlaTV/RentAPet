@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= current_user.email %></h2>
 
 <%= image_tag @user.avatar.url(:thumb) %>
 
@@ -8,6 +8,19 @@
 
   <%= f.text_field :first_name, autofocus: :true, placeholder: "John" %>
   <%= f.text_field :last_name, placeholder: "Digweed" %>
+  <%= f.email_field :email, placeholder: "john@johndigweed.com" %>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <%= f.password_field :password, autocomplete: "off", placeholder: "(leave blank if you don't want to change it)" %>
+
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+  <%= f.password_field :current_password, autocomplete: "off", placeholder: "(we need your current password to confirm your changes)"%>
+
+  <hr>
   <%= f.text_field :street_address, placeholder: "123 Badass Lane Apt 455" %>
   <%= f.text_field :city, placeholder: "Gotham" %>
   <%= f.select(:state, options_for_select([
@@ -65,20 +78,10 @@
     ['Wyoming', 'WY']
     ])) %>
     <%= f.text_field :zip, placeholder: "95949" %>
-    <%= f.phone_field :phone, placeholder: "111-222-4221" %>
+    <%= f.telephone_field :phone, placeholder: "1112224221"%>
+    <%= f.text_area :description, placeholder: "Tell us about yourself", rows: "4" %>
+
     <%= f.file_field :avatar %>
-
-    <%= f.email_field :email, placeholder: "john@johndigweed.com" %>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-    <%= f.password_field :password, autocomplete: "off", placeholder: "(leave blank if you don't want to change it)" %>
-
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
-    <%= f.password_field :current_password, autocomplete: "off", placeholder: "(we need your current password to confirm your changes)"%>
 
     <%= f.submit "Update", data: {disable_with: 'Saving...'}, class: "btn btn-block btn-default"%>
     <% end %>
