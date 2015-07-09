@@ -18,7 +18,6 @@
 
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-  <%= f.password_field :current_password, autocomplete: "off", placeholder: "(we need your current password to confirm your changes)"%>
 
   <hr>
   <%= f.text_field :street_address, placeholder: "123 Badass Lane Apt 455" %>
@@ -77,16 +76,20 @@
     ['Wisconsin', 'WI'],
     ['Wyoming', 'WY']
     ])) %>
-    <%= f.text_field :zip, placeholder: "95949" %>
-    <%= f.telephone_field :phone, placeholder: "1112224221"%>
-    <%= f.text_area :description, placeholder: "Tell us about yourself", rows: "4" %>
 
-    <%= f.file_field :avatar %>
+  <%= f.text_field :zip, placeholder: "95949" %>
+  <%= f.telephone_field :phone, placeholder: "1112224221"%>
+  <%= f.text_area :description, placeholder: "Tell us about yourself", rows: "4" %>
 
-    <%= f.check_box :admin, value: true %>
+  <%= f.file_field :avatar, multiple: true %>
 
-    <%= f.submit "Update", data: {disable_with: 'Saving...'}, class: "btn btn-block btn-default"%>
-    <% end %>
+  <%= f.check_box :admin, value: true %>
+  <hr>
+  <%= f.password_field :current_password, autocomplete: "off", placeholder: "(we need your current password to confirm your changes)"%>
+
+
+  <%= f.submit "Update", data: {disable_with: 'Saving...'}, class: "btn btn-block btn-default"%>
+  <% end %>
 <br>
 <hr>
 <div class="text-center">

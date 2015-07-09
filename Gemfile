@@ -13,7 +13,6 @@ gem 'devise'
 gem 'pry'
 gem 'bootstrap_form'
 gem 'paperclip'
-gem 'simple_form'
 
 group :development do
   gem 'byebug'
