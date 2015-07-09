@@ -3,11 +3,5 @@
 <%= @listing.format_price %>
 
 <% @listing.avatars.each do |picture| %>
-<%= image_tag picture.url %>
-<% end %>
-
-
-
-<% @listing.image_array.each do |picture| %>
-  <%= image_tag picture %>
+<%= image_tag picture.medium.url %>
 <% end %>

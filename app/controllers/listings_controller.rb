@@ -1,14 +1,15 @@
 class ListingsController < ApplicationController
+  load_and_authorize_resource
+
 def index
 
 end
 
 def new
-  @listing = Listing.new
 end
 
 def create
-  @listing = current_user.listings.new(listing_params)
+  current_user.listings.push(@listing)
   @listing.avatars = params[:listing][:avatars]
   if @listing.save
     redirect_to listing_path(@listing)
@@ -19,7 +20,6 @@ end
 
 def show
 
-  @listing = Listing.find(params[:id])
 end
 
 
