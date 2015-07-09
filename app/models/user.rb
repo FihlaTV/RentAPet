@@ -8,4 +8,14 @@ class User < ActiveRecord::Base
          validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
+
+
+  def address_checker
+    if (self.street_address || self.state || self.city || self.zip)
+      false
+    else
+      true
+    end
+  end
+
 end

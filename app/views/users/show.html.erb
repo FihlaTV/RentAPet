@@ -8,12 +8,24 @@
 <% if current_user != nil %>
   <p>
     Email: <%= @user.email %><br>
-    Phone: <%= number_to_phone @user.phone %>
+    <% if @user.phone == nil && current_user == @user %>
+      <br>
+      <span class="lead">Please <%= link_to "Add", edit_user_registration_path %> your phone number.</span>
+    <% elsif @user.phone == nil && current_user != @user%>
+    <% else %>
+      Phone: <%= number_to_phone @user.phone %>
+    <% end %>
   </p>
   <p>
+    <% if @user.address_checker && current_user == @user %>
+    <br>
+    <span class="lead">Please <%= link_to "Add", edit_user_registration_path %> your address.</span>
+    <% elsif @user.address_checker && current_user != @user%>
+    <% else %>
     <u>Address:</u><br>
     <%= @user.street_address %><br>
     <%= @user.city %>, <%= @user.state %> <%= @user.zip %>
+    <% end %>
   </p>
   <% else %>
     <div style="margin-top: 60px" class="col-md-3 col-md-offset-2 text-center">
