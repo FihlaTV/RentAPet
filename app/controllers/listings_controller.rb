@@ -1,5 +1,4 @@
 class ListingsController < ApplicationController
-
 def index
 
 end
@@ -10,6 +9,7 @@ end
 
 def create
   @listing = current_user.listings.new(listing_params)
+  @listing.avatars = params[:listing][:avatars]
   if @listing.save
     redirect_to listing_path(@listing)
   else
@@ -18,6 +18,7 @@ def create
 end
 
 def show
+
   @listing = Listing.find(params[:id])
 end
 

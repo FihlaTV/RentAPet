@@ -13,6 +13,7 @@ gem 'devise'
 gem 'pry'
 gem 'bootstrap_form'
 gem 'paperclip'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 
 group :development do
   gem 'byebug'
