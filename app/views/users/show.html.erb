@@ -45,3 +45,19 @@
 <% end %>
 <hr>
 <h1>Listings</h1>
+
+
+<% @user.listings.in_groups_of(3, false) do |group| %>
+  <div class="row">
+  <% group.each do |listing| %>
+    <%= link_to listing_path(listing) do %>
+      <div class="col-md-4">
+        <p> <%= image_tag listing.avatars[0].thumb.url %></p>
+        <p> <%= listing.title %></p>
+        <p> <%= listing.pet_name %></p>
+        <p> <%= listing.format_price %></p>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+<% end %>

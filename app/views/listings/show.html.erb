@@ -2,6 +2,12 @@
 <%= @listing.pet_name %>
 <%= @listing.format_price %>
 
+<% if @listing.avatars = [] %>
+
+<%= image_tag "default.png" %>
+<% else %>
+
 <% @listing.avatars.each do |picture| %>
 <%= image_tag picture.medium.url %>
+<% end %>
 <% end %>

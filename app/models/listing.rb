@@ -5,6 +5,7 @@ class Listing < ActiveRecord::Base
   validates :title, :presence => true
   validates :pet_name, :presence => true
   validates :price, :presence => true
+  # validates :avatars, :presence => true
 
   mount_uploaders :avatars, AvatarUploader
 

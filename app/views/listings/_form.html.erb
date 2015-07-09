@@ -2,7 +2,7 @@
   <%= f.text_field :title %>
   <%= f.text_field :pet_name %>
   <%= f.number_field :price %>
-  <%= f.file_field :avatars, multiple: true %>
+  <%= f.file_field :avatars, multiple: true, label: "Images" %>
 
   <%= f.submit "Submit", data: {disable_with: 'Saving...'}, class: "btn btn-block btn-default", id: "submit-listing"%>
 <% end %>

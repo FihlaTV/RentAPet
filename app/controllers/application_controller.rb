@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
     flash[:alert] = exception.message
   end
 
+  def image
+    binding.pry
+    if self != nil
+      self.url
+    else
+      "default.png"
+    end
+  end
 
 
 end
